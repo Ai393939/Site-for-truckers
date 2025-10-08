@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+   font-size: 16px;
+   scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
+    background-color: #688a65;
+}
+
+header {
+    margin: 0 auto; 
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #94a59c;
+}
+
+.first-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+    align-items: center;
+    background-color: #2c341b;
+    color: #94a59c;
+}
+
+.main-nav {
+    margin: 0 auto;
+}
+
+.main-nav ul, .sub-nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+li {     
+    font-size: 1rem;
+    margin: 0 2rem;
+    /* color: #dddfc2; */
+    padding: 20px 0;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+}
+
+header > form, header > .sub-nav {
+    align-self: center;
+    padding: 10px 0 0 0;
+}
+
+main {
+    background: url(https://images.wallpaperscraft.ru/image/single/doroga_les_derevia_151378_2560x1024.jpg) center/cover fixed  no-repeat;
+}
+
+main > div {
+    width: 80%;
+    height: 1000px;
+    background-color: #dddfc2;
+    margin: 50rem auto 2rem;
+    border-radius: 30px;
+}
+
+main h1 {
+    text-align: center;
+    color: #2c341b;
+    margin: 2rem 0;
+    font-size: 2rem;
+}
+
+main form {
+    background-color: rgba(221, 223, 194, 0.95);
+    width: 80%;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+main form h2 {
+    color: #2c341b;
+    margin: 1.5rem 0 1rem 0;
+    border-bottom: 1px solid #94a59c;
+    padding-bottom: 0.5rem;
+}
+
+main form ul {
+    list-style: none;
+    margin-bottom: 1rem;
+}
+
+main form li {
+    margin: 0;
+    padding: 0.25rem 0;
+    font-weight: normal;
+    cursor: pointer;
+    display: block;
+}
+
+main form input[type="text"],
+main form input[type="email"] {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #94a59c;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+main form input[type="submit"],
+main form input[type="reset"] {
+    background-color: #2c341b;
+    color: #dddfc2;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+main form input[type="submit"]:hover,
+main form input[type="reset"]:hover {
+    background-color: #688a65;
+}
+
+time {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #2c341b;
+}
+
+header form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+header form input[type="text"] {
+    padding: 0.5rem;
+    border: 1px solid #94a59c;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 200px;
+}
+
+header form button {
+    background-color: #2c341b;
+    color: #dddfc2;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header form button:hover {
+    background-color: #688a65;
+}
+
+header > form br {
+    display: none;
+}
+
+footer {
+    background-color: #94a59c;
+    width: 100%;
+    justify-items: center;
+}
