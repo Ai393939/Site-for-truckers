@@ -10,23 +10,27 @@ html {
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Arial', 'Helvetica', sans-serif;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background-color: #ffffff;
+    color: #2c341b;
+    line-height: 1.6;
 }
 
 main {
     flex-grow: 1;
-    background-color: #688a65;
+    background-color: #ffffff;
 }
 
 header {
-    margin: 0 auto; 
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: #94a59c;
+    background: #1D7373;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
 
 .first-row {
@@ -34,8 +38,16 @@ header {
     justify-content: space-between;
     padding: 0 2rem;
     align-items: center;
-    background-color: #2c341b;
-    color: #94a59c;
+    background-color: #006363;
+    color: #f8f9fa;
+    min-height: 80px;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.5px;
 }
 
 .main-nav {
@@ -49,55 +61,118 @@ header {
     padding: 0;
 }
 
-li {     
+li {
     font-size: 1rem;
     margin: 0 2rem;
-    /* color: #dddfc2; */
     padding: 20px 0;
     cursor: pointer;
     display: inline-block;
-    font-weight: bold;
+    font-weight: 600;
+    color: #e8f5e8;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+li:hover {
+    color: #ffffff;
+}
+
+li::after {
+    content: '';
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #00b4b4;
+    transition: width 0.3s ease;
+}
+
+li:hover::after {
+    width: 100%;
+}
+
+.header-contacts {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.header-contacts a {
+    color: #e8f5e8;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    padding: 8px 16px;
+    border: 1px solid #4a7c59;
+    border-radius: 4px;
+}
+
+.header-contacts a:hover {
+    color: #ffffff;
+    background-color: #4a7c59;
 }
 
 header > form, header > .sub-nav {
     align-self: center;
-    padding: 10px 0 0 0;
+    padding: 15px 0;
+}
+
+.sub-nav {
+    background-color: #009999;
+    width: 100%;
+}
+
+.sub-nav ul {
+    justify-content: center;
+}
+
+.sub-nav li {
+    font-size: 0.95rem;
+    margin: 0 1.5rem;
+    padding: 15px 0;
 }
 
 main {
-    background: url(https://images.wallpaperscraft.ru/image/single/doroga_les_derevia_151378_2560x1024.jpg) center/cover fixed  no-repeat;
+    background: #ffffff;
+    padding: 2rem 0;
 }
 
 main > div {
-    width: 80%;
-    height: 1000px;
-    background-color: #dddfc2;
-    margin: 50rem auto 2rem;
-    border-radius: 30px;
+    width: 90%;
+    max-width: 1200px;
+    height: auto;
+    min-height: 600px;
+    background-color: #f8f9fa;
+    margin: 2rem auto;
+    border: 1px solid #e9ecef;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 main h1 {
     text-align: center;
-    color: #2c341b;
+    color: #1a2f1a;
     margin: 2rem 0;
-    font-size: 2rem;
+    font-size: 2.2rem;
+    font-weight: 700;
 }
 
 main form {
-    background-color: rgba(221, 223, 194, 0.95);
-    width: 80%;
+    background-color: #ffffff;
+    width: 90%;
     max-width: 600px;
     margin: 2rem auto;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem;
+    border: 1px solid #e9ecef;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 main form h2 {
-    color: #2c341b;
+    color: #1a2f1a;
     margin: 1.5rem 0 1rem 0;
-    border-bottom: 1px solid #94a59c;
+    border-bottom: 2px solid #4a7c59;
     padding-bottom: 0.5rem;
+    font-size: 1.4rem;
 }
 
 main form ul {
@@ -111,35 +186,48 @@ main form li {
     font-weight: normal;
     cursor: pointer;
     display: block;
+    color: #006363;
 }
 
 main form input[type="text"],
 main form input[type="email"] {
     width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border: 1px solid #94a59c;
+    padding: 0.85rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #ced4da;
     border-radius: 4px;
     font-size: 1rem;
     box-sizing: border-box;
+    background-color: #f8f9fa;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+main form input[type="text"]:focus,
+main form input[type="email"]:focus {
+    outline: none;
+    border-color: #4a7c59;
+    box-shadow: 0 0 0 3px rgba(74, 124, 89, 0.1);
 }
 
 main form input[type="submit"],
 main form input[type="reset"] {
     background-color: #2c341b;
-    color: #dddfc2;
-    padding: 0.75rem 1.5rem;
+    color: #ffffff;
+    padding: 0.85rem 2rem;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 1rem;
+    font-weight: 600;
     margin-right: 1rem;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 main form input[type="submit"]:hover,
 main form input[type="reset"]:hover {
-    background-color: #688a65;
+    background-color: #4a7c59;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 time {
@@ -147,6 +235,7 @@ time {
     font-weight: bold;
     margin-bottom: 1rem;
     color: #2c341b;
+    font-size: 1.1rem;
 }
 
 header form {
@@ -157,27 +246,29 @@ header form {
 }
 
 header form input[type="text"] {
-    padding: 0.5rem;
-    border: 1px solid #94a59c;
+    padding: 0.75rem;
+    border: 1px solid #ced4da;
     border-radius: 4px;
     font-size: 1rem;
-    width: 200px;
+    width: 250px;
+    background-color: #f8f9fa;
 }
 
 header form button {
-    background-color: #2c341b;
-    color: #dddfc2;
+    background-color: #009999;
+    color: #ffffff;
     border: none;
     border-radius: 4px;
-    padding: 0.5rem;
+    padding: 0.75rem;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background-color 0.3s ease;
 }
 
 header form button:hover {
-    background-color: #688a65;
+    background-color: #006363;
 }
 
 header > form br {
@@ -185,7 +276,175 @@ header > form br {
 }
 
 footer {
-    background-color: #94a59c;
+    background: #006363;
     width: 100%;
-    justify-items: center;
+    padding: 3rem 2rem;
+    color: #ffffff;
+    text-align: center;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 1px solid #4a7c59;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    background-color: #4a7c59;
+    transform: translateY(-2px);
+}
+
+footer p {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    color: #e8f5e8;
+    font-weight: 500;
+}
+
+
+
+@media screen and (max-width: 1024px) {
+    .first-row {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+    
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .main-nav li {
+        margin: 0 1rem;
+        padding: 10px 0;
+    }
+    
+    .header-contacts {
+        gap: 1rem;
+    }
+    
+    main > div {
+        width: 95%;
+        margin: 1.5rem auto;
+    }
+    
+    main form {
+        width: 95%;
+        padding: 2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+    
+    .first-row {
+        padding: 1rem;
+    }
+    
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+    
+    .main-nav ul,
+    .sub-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .main-nav li,
+    .sub-nav li {
+        margin: 0;
+        padding: 8px 0;
+        font-size: 0.9rem;
+
+    }
+    
+    .header-contacts {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    header form {
+        width: 90%;
+    }
+    
+    header form input[type="text"] {
+        width: 100%;
+    }
+    
+    main > div {
+        width: 98%;
+        margin: 1rem auto;
+    }
+    
+    main h1 {
+        font-size: 1.8rem;
+        margin: 1.5rem 0;
+    }
+    
+    main form {
+        width: 98%;
+        padding: 1.5rem;
+        margin: 1rem auto;
+    }
+    
+    main form input[type="submit"],
+    main form input[type="reset"] {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+    
+    footer {
+        padding: 2rem 1rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    html {
+        font-size: 13px;
+    }
+    
+    .first-row {
+        padding: 0.5rem;
+    }
+    
+    .logo h1 {
+        font-size: 1.3rem;
+    }
+    
+    .main-nav li,
+    .sub-nav li {
+        font-size: 0.85rem;
+        padding: 5px 0;
+    }
+    
+    main h1 {
+        font-size: 1.5rem;
+        margin: 1rem 0;
+    }
+    
+    main form {
+        padding: 1rem;
+    }
+    
+    header form {
+        width: 95%;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    footer {
+        padding: 1.5rem 0.5rem;
+    }
 }
