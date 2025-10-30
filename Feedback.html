@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обратная связь</title>
+</head>
+<body>
+    
+<header>
+    <div class="first-row">
+        <div class="logo">
+            <h1>ООО "Леку-Транс"</h1>
+        </div>
+        
+        <nav class="main-nav">
+            <ul>
+                <li>О компании</li>
+                <li>Услуги</li>
+                <li>Контакты</li>
+                <li>География перевозок</li>
+            </ul>
+        </nav>
+
+        <div class="header-contacts">
+            <a href="tel:+">+</a>
+            <a href="">Личный кабинет</a>
+        </div>
+    </div>
+
+    <form action="/search" method="get">
+        <input type="text" name="query" placeholder="Поиск...">
+        <button type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+</svg></button> <!--Потом заменить "Искать" на картинку лупы-->
+    </form>
+
+    <nav class="sub-nav">
+        <ul>
+            <li><a href="SubmitRequest.html">Подать заявку</a></li>
+            <li><a href="">Отслеживание груза</a></li>
+            <li><a href="Feedback.html">Обратная связь</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <div>
+        <h1>Обратная связь</h1>
+        <form>
+            Выберите тип сообщения:<br>
+            <input type="radio" name="typeMessage">Отзыв<br>
+            <input type="radio" name="typeMessage">Предложение<br>
+            <input type="radio" name="typeMessage">Консультация<br><br>
+
+            Ваше имя:<br>
+            <input type="text" name="name" required><br>
+
+            Ваш e-mail:<br>
+            <input type="email" name="email" required><br>
+
+            Сообщение:<br>
+            <input type="text" name="message" required><br>
+
+            <input type="reset" value="Очистить">
+            <input type="submit" value="Отправить">
+        </form>
+    </div>
+</main>
+
+<footer>
+    <a href="tel:+">+</a>
+    <p>ООО "Леку-Транс"</p>
+</footer>
+</body>
+</html>

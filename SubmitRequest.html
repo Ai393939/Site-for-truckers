@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подать заявку</title>
+</head>
+<body>
+    
+<header>
+    <div class="first-row">
+        <div class="logo">
+            <h1>ООО "Леку-Транс"</h1>
+        </div>
+        
+        <nav class="main-nav">
+            <ul>
+                <li>О компании</li>
+                <li>Услуги</li>
+                <li>Контакты</li>
+                <li>География перевозок</li>
+            </ul>
+        </nav>
+
+        <div class="header-contacts">
+            <a href="tel:+">+</a>
+            <a href="">Личный кабинет</a>
+        </div>
+    </div>
+
+    <form action="/search" method="get">
+        <input type="text" name="query" placeholder="Поиск...">
+        <button type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+</svg></button> <!--Потом заменить "Искать" на картинку лупы-->
+    </form>
+
+    <nav class="sub-nav">
+        <ul>
+            <li><a href="SubmitRequest.html">Подать заявку</a></li>
+            <li><a href="">Отслеживание груза</a></li>
+            <li><a href="Feedback.html">Обратная связь</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <div>    
+        <h1>Заполните форму для отправки заявки</h1>
+        <form>
+            Дата выполнения заявки:<br>
+            <time id="currentDate"></time>
+            <script>
+                const today = new Date();
+                const formattedDate = today.toISOString().split('T')[0]; // YYYY-MM-DD
+                const displayDate = today.toLocaleDateString('ru-RU'); // DD.MM.YYYY
+                
+                const timeElement = document.getElementById('currentDate');
+                timeElement.textContent = displayDate;
+                timeElement.setAttribute('datetime', formattedDate);
+            </script>
+
+            <h2>Отправитель</h2>
+            Ваш город:<br>
+            <input type="text" name="citySender" required><br>
+
+            Название компании:<br>
+            <input type="text" name="nameSender" required><br>
+
+            Адрес:<br>
+            <input type="text" name="adressSender" required><br>
+
+            Номер телефона:<br>
+            <input type="number" name="numberSender" required><br>
+
+            ИНН:<br>
+            <input type="number" name="innSender" required><br>
+
+            Время работы:<br>
+            <input type="time" name="timeSender"><br>
+
+            <h2>Получатель</h2>
+
+            Город:<br>
+            <input type="text" name="cityRecipient"><br>
+
+            Название компании:<br>
+            <input type="text" name="nameRecipient"><br>
+
+            Адерс:<br>
+            <input type="text" name="adressRecipient"><br>
+
+            Номер телефона:<br>
+            <input type="number" name="numberRecipient"><br>
+
+            ИНН:<br>
+            <input type="number" name="innRecipient"><br>
+
+            <h2>Характеристики груза</h2>
+            
+            Количество штук:<br>
+            <input type="number" name="countFreight"><br>
+
+            Наименование:<br>
+            <input type="text" name="nameFreight"><br>
+
+            Общая стоимость:<br>
+            <input type="number" name="costFreight"><br>
+            
+            Общий вес:<br>
+            <input type="number" name="weightFreight"><br>
+            
+            Общий объём:<br>
+            <input type="number" name="volumeFreight"><br>
+            
+            :<br>
+            <input type="text" name=""><br>
+            
+            :<br>
+            <input type="text" name=""><br>
+            
+            :<br>
+            <input type="text" name=""><br>
+
+            <h2>Дополнительные сведения формы:</h2>
+            
+            Требуется ли страхование:<br>
+            <input type="radio" name="insurance">Да<br>
+            <input type="radio" name="insurance">Нет<br><br>
+            
+            Небходимость доставить до получателя:<br>
+            <input type="radio" name="dop1">Да<br>
+            <input type="radio" name="dop1">Нет<br><br>
+            
+            Небходимость доверенности получателя:<br>
+            <input type="radio" name="dop2">Да<br>
+            <input type="radio" name="dop2">Нет<br>
+
+            <h2>Форма для комментария:</h2>
+
+            Комментарий:<br>
+            <input type="text" name="comment"><br>
+
+            <input type="reset" value="Очистить">
+            <input type="submit" value="Отправить">
+        </form>
+    </div>
+</main>
+
+<footer>
+    <a href="tel:+">+</a>
+    <p>ООО "Леку-Транс"</p>
+</footer>
+</body>
+</html>
