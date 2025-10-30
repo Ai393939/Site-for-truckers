@@ -38,9 +38,9 @@
 
     <nav class="sub-nav">
         <ul>
-            <li>Подать заявку</li>
-            <li>Отслеживание груза</li>
-            <li>Обратная связь</li>
+            <li><a href="SubmitRequest.html">Подать заявку</a></li>
+            <li><a href="">Отслеживание груза</a></li>
+            <li><a href="Feedback.html">Обратная связь</a></li>
         </ul>
     </nav>
 </header>
@@ -62,23 +62,85 @@
             </script>
 
             <h2>Отправитель</h2>
-            :<br>
-            <input type="text" name="" required><br>
+            Ваш город:<br>
+            <input type="text" name="citySender" required><br>
 
-            :<br>
-            <input type="text" name="" required><br>
+            Название компании:<br>
+            <input type="text" name="nameSender" required><br>
 
-            :<br>
-            <input type="text" name="" required><br>
+            Адрес:<br>
+            <input type="text" name="adressSender" required><br>
 
-            :<br>
-            <input type="text" name="" required><br>
+            Номер телефона:<br>
+            <input type="number" name="numberSender" required><br>
 
-            :<br>
-            <input type="text" name="" required><br>
+            ИНН:<br>
+            <input type="number" name="innSender" required><br>
 
+            Время работы:<br>
+            <input type="time" name="timeSender"><br>
+
+            <h2>Получатель</h2>
+
+            Город:<br>
+            <input type="text" name="cityRecipient"><br>
+
+            Название компании:<br>
+            <input type="text" name="nameRecipient"><br>
+
+            Адерс:<br>
+            <input type="text" name="adressRecipient"><br>
+
+            Номер телефона:<br>
+            <input type="number" name="numberRecipient"><br>
+
+            ИНН:<br>
+            <input type="number" name="innRecipient"><br>
+
+            <h2>Характеристики груза</h2>
+            
+            Количество штук:<br>
+            <input type="number" name="countFreight"><br>
+
+            Наименование:<br>
+            <input type="text" name="nameFreight"><br>
+
+            Общая стоимость:<br>
+            <input type="number" name="costFreight"><br>
+            
+            Общий вес:<br>
+            <input type="number" name="weightFreight"><br>
+            
+            Общий объём:<br>
+            <input type="number" name="volumeFreight"><br>
+            
             :<br>
-            <input type="text" name="" required><br>
+            <input type="text" name=""><br>
+            
+            :<br>
+            <input type="text" name=""><br>
+            
+            :<br>
+            <input type="text" name=""><br>
+
+            <h2>Дополнительные сведения формы:</h2>
+            
+            Требуется ли страхование:<br>
+            <input type="radio" name="insurance">Да<br>
+            <input type="radio" name="insurance">Нет<br><br>
+            
+            Небходимость доставить до получателя:<br>
+            <input type="radio" name="dop1">Да<br>
+            <input type="radio" name="dop1">Нет<br><br>
+            
+            Небходимость доверенности получателя:<br>
+            <input type="radio" name="dop2">Да<br>
+            <input type="radio" name="dop2">Нет<br>
+
+            <h2>Форма для комментария:</h2>
+
+            Комментарий:<br>
+            <input type="text" name="comment"><br>
 
             <input type="reset" value="Очистить">
             <input type="submit" value="Отправить">

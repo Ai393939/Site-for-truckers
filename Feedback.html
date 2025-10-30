@@ -38,9 +38,9 @@
 
     <nav class="sub-nav">
         <ul>
-            <li>Подать заявку</li>
-            <li>Отслеживание груза</li>
-            <li>Обратная связь</li>
+            <li><a href="SubmitRequest.html">Подать заявку</a></li>
+            <li><a href="">Отслеживание груза</a></li>
+            <li><a href="Feedback.html">Обратная связь</a></li>
         </ul>
     </nav>
 </header>
@@ -50,19 +50,17 @@
         <h1>Обратная связь</h1>
         <form>
             Выберите тип сообщения:<br>
-            <ul>
-                <li>Отзыв</li>
-                <li>Предложение</li>
-                <li>Консультация</li>
-            </ul>
+            <input type="radio" name="typeMessage">Отзыв<br>
+            <input type="radio" name="typeMessage">Предложение<br>
+            <input type="radio" name="typeMessage">Консультация<br><br>
 
-            Введите Ваше имя:<br>
+            Ваше имя:<br>
             <input type="text" name="name" required><br>
 
-            Введите Ваш e-mail:<br>
+            Ваш e-mail:<br>
             <input type="email" name="email" required><br>
 
-            Введите сообщение:<br>
+            Сообщение:<br>
             <input type="text" name="message" required><br>
 
             <input type="reset" value="Очистить">
