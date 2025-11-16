@@ -27,4 +27,3 @@ switch ($path) {
         echo "<p>Запрошенный адрес: /$path</p>";
         break;
 }
-?>
