@@ -1,7 +1,14 @@
 <?php
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-
 $path = trim($path, '/');
+
+if (strpos($path, 'api/') === 0) {
+    $apiFile = substr($path, 4);
+    if ($apiFile === 'feedback.php') {
+        include 'api/feedback.php';
+        exit;
+    }
+}
 
 if (empty($path)) {
     include 'MainPage.html';
@@ -27,3 +34,4 @@ switch ($path) {
         echo "<p>Запрошенный адрес: /$path</p>";
         break;
 }
+?>

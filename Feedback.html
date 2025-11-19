@@ -33,7 +33,7 @@
         <input type="text" name="query" placeholder="Поиск...">
         <button type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
   <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-</svg></button> <!--Потом заменить "Искать" на картинку лупы-->
+</svg></button>
     </form>
 
     <nav class="sub-nav">
@@ -48,11 +48,11 @@
 <main>
     <div>
         <h1>Обратная связь</h1>
-        <form>
+        <form id="feedbackForm">
             Выберите тип сообщения:<br>
-            <input type="radio" name="typeMessage" required>Отзыв<br>
-            <input type="radio" name="typeMessage" required>Предложение<br>
-            <input type="radio" name="typeMessage" required>Консультация<br><br>
+            <input type="radio" name="type" value="Отзыв" required>Отзыв<br>
+            <input type="radio" name="type" value="Предложение" required>Предложение<br>
+            <input type="radio" name="type" value="Консультация" required>Консультация<br><br>
 
             Ваше имя:<br>
             <input type="text" name="name" required><br>
@@ -61,7 +61,7 @@
             <input type="email" name="email" required><br>
 
             Сообщение:<br>
-            <input type="text" name="message" required><br>
+            <input type="text" name="message" required style="height: 60px; padding: 8px;"><br>
 
             <input type="reset" value="Очистить">
             <input type="submit" value="Отправить">
@@ -73,5 +73,7 @@
     <a href="tel:+">+</a>
     <p>ООО "Леку-Транс"</p>
 </footer>
+
+<script src="js/forms.js"></script>
 </body>
 </html>
