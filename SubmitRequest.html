@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <link rel="stylesheet" href="css/style.css">
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Подать заявку</title>
@@ -48,7 +49,7 @@
 <main>
     <div>    
         <h1>Заполните форму для отправки заявки</h1>
-        <form>
+        <form action="/api/submit_request.php" method="POST" id="requestForm">
             Дата выполнения заявки:<br>
             <time id="currentDate"></time>
             <script>
@@ -147,7 +148,7 @@
             <input type="text" name="comment"><br>
 
             <input type="reset" value="Очистить">
-            <input type="submit" value="Отправить">
+            <button type="submit" id="submitBtn">Отправить</button>
         </form>
     </div>
 </main>
@@ -156,5 +157,9 @@
     <a href="tel:+">+</a>
     <p>ООО "Леку-Транс"</p>
 </footer>
+
+<script src="js/submit_request.js"></script>
+<script src="js/animations.js"></script>
+
 </body>
 </html>
