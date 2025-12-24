@@ -5,31 +5,6 @@ services:
       - "80:80"
     volumes:
       - .:/var/www/html
-    depends_on:
-      - mongodb
-      - mysql
-
-  mongodb:
-    image: mongo:7.0
-    ports:
-      - "27017:27017"
+      - ./logs:/var/www/html/logs
     environment:
-      MONGO_INITDB_DATABASE: leku_trans
-    volumes:
-      - mongodb_data:/data/db
-
-  mysql:
-    image: mysql:8.0
-    ports:
-      - "3307:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: leku_trans
-      MYSQL_USER: user
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-    volumes:
-      - mysql_data:/var/lib/mysql
-
-volumes:
-  mongodb_data:
-  mysql_data:
+      - PHP_ERROR_LOG=/var/www/html/logs/php_errors.log

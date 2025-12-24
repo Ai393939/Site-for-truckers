@@ -5,21 +5,17 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             
             const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
             
             try {
                 const response = await fetch('/api/feedback.php', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
+                    body: formData
                 });
                 
                 const result = await response.json();
                 
                 if (result.success) {
-                    alert('Сообщение отправлено в MongoDB!');
+                    alert(result.message);
                     this.reset();
                 } else {
                     alert('Ошибка: ' + result.error);

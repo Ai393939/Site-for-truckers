@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ООО Леку-Транс</title>
+    <title>ООО Леку-Транс - Грузоперевозки по Беларуси</title>
 </head>
 <body>
     
@@ -12,51 +12,249 @@
     <div class="first-row">
         <div class="logo">
             <h1><a href="MainPage.html">ООО "Леку-Транс"</a></h1>
+            <p class="logo-subtitle">Надёжные грузоперевозки по Беларуси</p>
         </div>
+        
+        <button class="mobile-menu-toggle" aria-label="Открыть меню">
+            ☰
+        </button>
         
         <nav class="main-nav">
             <ul>
-                <li>О компании</li>
-                <li>Услуги</li>
-                <li>Контакты</li>
-                <li>География перевозок</li>
+                <li><a href="#about">О компании</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+                <li><a href="#geography">География</a></li>
             </ul>
         </nav>
 
         <div class="header-contacts">
-            <a href="tel:+">+</a>
-            <a href="">Личный кабинет</a>
+            <a href="tel:+375291234567">+375 (29) 123-45-67</a>
         </div>
     </div>
-
-    <form action="/search" method="get">
-        <input type="text" name="query" placeholder="Поиск...">
-        <button type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-</svg></button> <!--Потом заменить "Искать" на картинку лупы-->
-    </form>
 
     <nav class="sub-nav">
         <ul>
             <li><a href="SubmitRequest.html">Подать заявку</a></li>
-            <li><a href="">Отслеживание груза</a></li>
             <li><a href="Feedback.html">Обратная связь</a></li>
         </ul>
     </nav>
+    
+    <div class="mobile-menu-container">
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#about">О компании</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+                <li><a href="#geography">География</a></li>
+            </ul>
+        </nav>
+        
+        <nav class="sub-nav">
+            <ul>
+                <li><a href="SubmitRequest.html">Подать заявку</a></li>
+                <li><a href="Feedback.html">Обратная связь</a></li>
+            </ul>
+        </nav>
+        
+        <div class="header-contacts">
+            <a href="tel:+375291234567">+375 (29) 123-45-67</a>
+        </div>
+    </div>
 </header>
 
 <main>
-    <div>Грузовая компания «Леку-Транс» осуществляет перевозку габаритных, сборных грузов, металлоконструкций, контейнерных, опасных и прочих грузов! 
-        Мы знаем особенности транспортировки всех видов грузов, используем изотермические фургоны и рефрижераторы для доставки грузов, требующих определенных температурных условий. 
-        Уже много лет мы ежедневно доставляем грузы по всей России и за ее пределы, а также обеспечиваем качественный сервис на всех этапах работы — от первого знакомства до обеспечения профессиональной поддержки для клиентов и работы с документами.</div>
+    <div class="hero-section">
+        <h1>Профессиональные грузоперевозки по Беларуси</h1>
+        <p>Полный комплекс логистических услуг от опытного перевозчика</p>
+        <a href="SubmitRequest.html" class="btn-primary btn-large">Оставить заявку на перевозку груза</a>
+    </div>
+
+    <section id="about" class="section">
+        <h2>О компании</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p><strong id="logo">ООО "Леку-Транс"</strong> – современная транспортно-логистическая компания, работающая на рынке грузоперевозок Беларуси с 2010 года.</p>
+                <p>Мы специализируемся на перевозке сборных, габаритных и опасных грузов, а также доставке продукции, требующей специальных температурных условий.</p>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">13+</span>
+                        <span class="stat-label">Лет на рынке</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">8500+</span>
+                        <span class="stat-label">Успешных перевозок</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Поддержка клиентов</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section section-dark">
+        <h2>Наши услуги</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Сборные грузы</h3>
+                <p>Экономичная доставка небольших партий товаров с консолидацией на складе</p>
+                <ul class="service-features">
+                    <li>От 1 паллеты</li>
+                    <li>Регулярные отправки</li>
+                    <li>Отслеживание онлайн</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h3>Габаритные перевозки</h3>
+                <p>Транспортировка крупногабаритного оборудования и строительных материалов</p>
+                                <ul class="service-features">
+                    <li>До 20 тонн</li>
+                    <li>Специальная техника</li>
+                    <li>Полное оформление</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h3>Рефрижераторные перевозки</h3>
+                <p>Доставка продуктов питания, фармацевтики и других температурных грузов</p>
+                <ul class="service-features">
+                    <li>Температурный режим от -25°C до +25°C</li>
+                    <li>Постоянный мониторинг</li>
+                    <li>Сертифицированные водители</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <h3>Опасные грузы</h3>
+                <p>Перевозка веществ и материалов, требующих особых условий транспортировки</p>
+                <ul class="service-features">
+                    <li>Классы 1-9</li>
+                    <li>Полный пакет документов</li>
+                    <li>Обученный персонал</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacts" class="section">
+        <h2>Контакты</h2>
+        <div class="contacts-grid">
+            <div class="contact-info">
+                <h3>Реквизиты компании</h3>
+                <p><strong>ООО "Леку-Транс"</strong></p>
+                <p>УНП: 123456789</p>
+                <p>Юр. адрес: 220004, г. Минск, ул. Немига, 40, офис 305</p>
+                <p>Факт. адрес: 220108, г. Минск, ул. Кальварийская, 1, склад 7</p>
+            </div>
+            
+            <div class="contact-info">
+                <h3>Контактная информация</h3>
+                <p><strong>Телефон:</strong> <a href="tel:+375291234567">+375 (29) 123-45-67</a></p>
+                <p><strong>Email:</strong> <a href="mailto:info@beltransgroup.by">info@beltransgroup.by</a></p>
+                <p><strong>Отдел логистики:</strong> +375 (29) 765-43-21</p>
+                <p><strong>График работы:</strong> Пн-Пт: 9:00-18:00, Сб: 10:00-15:00</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="geography" class="section">
+        <h2>География перевозок</h2>
+        <div class="geography-content">
+            <p>Мы осуществляем регулярные перевозки по всем регионам Беларуси:</p>
+            <div class="cities-grid">
+                <div class="city-group">
+                    <h4>Минская область</h4>
+                    <ul>
+                        <li>Минск</li>
+                        <li>Борисов</li>
+                        <li>Солигорск</li>
+                        <li>Молодечно</li>
+                        <li>Жодино</li>
+                    </ul>
+                </div>
+                <div class="city-group">
+                    <h4>Гомельская область</h4>
+                    <ul>
+                        <li>Гомель</li>
+                        <li>Мозырь</li>
+                        <li>Жлобин</li>
+                        <li>Речица</li>
+                        <li>Светлогорск</li>
+                    </ul>
+                </div>
+                <div class="city-group">
+                    <h4>Брестская область</h4>
+                    <ul>
+                        <li>Брест</li>
+                        <li>Барановичи</li>
+                        <li>Пинск</li>
+                        <li>Кобрин</li>
+                        <li>Лунинец</li>
+                    </ul>
+                </div>
+                <div class="city-group">
+                    <h4>Другие области</h4>
+                    <ul>
+                        <li>Витебск</li>
+                        <li>Могилёв</li>
+                        <li>Гродно</li>
+                        <li>Новополоцк</li>
+                        <li>Полоцк</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="note">Также осуществляем международные перевозки в Россию и страны ЕАЭС</p>
+        </div>
+    </section>
+
+    <div class="cta-section">
+        <h2>Готовы к перевозке?</h2>
+        <p>Оставьте заявку и получите расчёт стоимости в течение 30 минут</p>
+        <div class="cta-buttons">
+            <a href="SubmitRequest.html" class="btn-primary">Оставить заявку</a>
+            <a href="tel:+375291234567" class="btn-secondary">Позвонить нам</a>
+        </div>
+    </div>
 </main>
 
 <footer>
-    <a href="tel:+">+</a>
-    <p>ООО "Леку-Транс"</p>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>ООО "Леку-Транс"</h3>
+            <p>Надёжный партнёр в грузоперевозках по Беларуси. Качество, безопасность и пунктуальность — наши основные принципы работы.</p>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Услуги</h3>
+            <ul>
+                <li><a href="#services">Сборные грузы</a></li>
+                <li><a href="#services">Габаритные перевозки</a></li>
+                <li><a href="#services">Рефрижераторные перевозки</a></li>
+                <li><a href="#services">Опасные грузы</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Контакты</h3>
+            <p><i class="icon-phone"></i> <a href="tel:+375291234567">+375 (29) 123-45-67</a></p>
+            <p><i class="icon-email"></i> <a href="mailto:info@beltransgroup.by">info@beltransgroup.by</a></p>
+            <p><i class="icon-location"></i> г. Минск, ул. Кальварийская, 1</p>
+            <p><i class="icon-time"></i> Пн-Пт: 9:00-18:00</p>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2010-2025 ООО "Леку-Транс". Все права защищены.</p>
+        <p>Разработано с ❤️ для наших клиентов</p>
+    </div>
 </footer>
 
 <script src="js/animations.js"></script>
+<script src="js/main-page.js"></script>
+<script src="js/header.js"></script>
 
 </body>
 </html>

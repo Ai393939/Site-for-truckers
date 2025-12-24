@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=2">
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,37 +13,55 @@
     <div class="first-row">
         <div class="logo">
             <h1><a href="MainPage.html">ООО "Леку-Транс"</a></h1>
+            <p class="logo-subtitle">Надёжные грузоперевозки по Беларуси</p>
         </div>
+        
+        <button class="mobile-menu-toggle" aria-label="Открыть меню">
+            ☰
+        </button>
         
         <nav class="main-nav">
             <ul>
-                <li>О компании</li>
-                <li>Услуги</li>
-                <li>Контакты</li>
-                <li>География перевозок</li>
+                <li><a href="MainPage.html#about">О компании</a></li>
+                <li><a href="MainPage.html#services">Услуги</a></li>
+                <li><a href="MainPage.html#contacts">Контакты</a></li>
+                <li><a href="MainPage.html#geography">География</a></li>
             </ul>
         </nav>
 
         <div class="header-contacts">
-            <a href="tel:+">+</a>
-            <a href="">Личный кабинет</a>
+            <a href="tel:+375291234567">+375 (29) 123-45-67</a>
         </div>
     </div>
-
-    <form action="/search" method="get">
-        <input type="text" name="query" placeholder="Поиск...">
-        <button type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-</svg></button> <!--Потом заменить "Искать" на картинку лупы-->
-    </form>
 
     <nav class="sub-nav">
         <ul>
             <li><a href="SubmitRequest.html">Подать заявку</a></li>
-            <li><a href="">Отслеживание груза</a></li>
             <li><a href="Feedback.html">Обратная связь</a></li>
         </ul>
     </nav>
+    
+    <div class="mobile-menu-container">
+        <nav class="main-nav">
+            <ul>
+                <li><a href="MainPage.html#about">О компании</a></li>
+                <li><a href="MainPage.html#services">Услуги</a></li>
+                <li><a href="MainPage.html#contacts">Контакты</a></li>
+                <li><a href="MainPage.html#geography">География</a></li>
+            </ul>
+        </nav>
+        
+        <nav class="sub-nav">
+            <ul>
+                <li><a href="SubmitRequest.html">Подать заявку</a></li>
+                <li><a href="Feedback.html">Обратная связь</a></li>
+            </ul>
+        </nav>
+        
+        <div class="header-contacts">
+            <a href="tel:+375291234567">+375 (29) 123-45-67</a>
+        </div>
+    </div>
 </header>
 
 <main>
@@ -154,12 +172,40 @@
 </main>
 
 <footer>
-    <a href="tel:+">+</a>
-    <p>ООО "Леку-Транс"</p>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>ООО "Леку-Транс"</h3>
+            <p>Надёжный партнёр в грузоперевозках по Беларуси. Качество, безопасность и пунктуальность — наши основные принципы работы.</p>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Услуги</h3>
+            <ul>
+                <li><a href="MainPage.html#services">Сборные грузы</a></li>
+                <li><a href="MainPage.html#services">Габаритные перевозки</a></li>
+                <li><a href="MainPage.html#services">Рефрижераторные перевозки</a></li>
+                <li><a href="MainPage.html#services">Опасные грузы</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Контакты</h3>
+            <p><i class="icon-phone"></i> <a href="tel:+375291234567">+375 (29) 123-45-67</a></p>
+            <p><i class="icon-email"></i> <a href="mailto:info@beltransgroup.by">info@beltransgroup.by</a></p>
+            <p><i class="icon-location"></i> г. Минск, ул. Кальварийская, 1</p>
+            <p><i class="icon-time"></i> Пн-Пт: 9:00-18:00</p>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2010-2025 ООО "Леку-Транс". Все права защищены.</p>
+        <p>Разработано с ❤️ для наших клиентов</p>
+    </div>
 </footer>
 
 <script src="js/submit_request.js"></script>
 <script src="js/animations.js"></script>
+<script src="js/header.js"></script>
 
 </body>
 </html>
