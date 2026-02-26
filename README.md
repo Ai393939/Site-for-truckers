@@ -32,6 +32,8 @@ Many trucking companies lack a structured online presence, leading to chaotic co
 *Main page*  
 <img src="images/main.png" width="600">
 
+<br>
+
 *Request form*  
 <img src="images/request-form.png" width="600">
 
