@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Доступ к блокчейну - ООО "Леку-Транс"</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <div class="first-row">
+        <div class="logo">
+            <h1><a href="MainPage.html">ООО "Леку-Транс"</a></h1>
+            <p class="logo-subtitle">Надёжные грузоперевозки по Беларуси</p>
+        </div>
+        
+        <button class="mobile-menu-toggle" aria-label="Открыть меню">
+            ☰
+        </button>
+        
+        <nav class="main-nav">
+            <ul>
+                <li><a href="MainPage.html#about">О компании</a></li>
+                <li><a href="MainPage.html#services">Услуги</a></li>
+                <li><a href="MainPage.html#contacts">Контакты</a></li>
+                <li><a href="MainPage.html#geography">География</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-contacts">
+            <a href="tel:+375291234567">+375 (29) 123-45-67</a>
+        </div>
+    </div>
+
+    <nav class="sub-nav">
+        <ul>
+            <li><a href="SubmitRequest.html">Подать заявку</a></li>
+            <li><a href="Feedback.html">Обратная связь</a></li>
+            <li><a href="LoginBlockchain.html">Блокчейн</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <div>
+        <h1>Доступ к блокчейну</h1>
+        <p>Введите логин и пароль для доступа</p>
+        
+        <form action="api/login.php" method="POST">
+            <label for="username">Логин:</label>
+            <input type="text" id="username" name="username" required>
+            <br><br>
+            
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required>
+            <br><br>
+            
+            <button type="submit">Войти</button>
+        </form>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>ООО "Леку-Транс"</h3>
+            <p>Надёжный партнёр в грузоперевозках по Беларуси.</p>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Контакты</h3>
+            <p><a href="tel:+375291234567">+375 (29) 123-45-67</a></p>
+            <p><a href="mailto:info@beltransgroup.by">info@beltransgroup.by</a></p>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2010-2025 ООО "Леку-Транс". Все права защищены.</p>
+    </div>
+</footer>
+
+<script src="js/header.js"></script>
+
+</body>
+</html>

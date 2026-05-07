@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блокчейн заявок - ООО "Леку-Транс"</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="first-row">
+            <div class="logo">
+                <h1><a href="MainPage.html">ООО "Леку-Транс"</a></h1>
+                <p class="logo-subtitle">Надёжные грузоперевозки по Беларуси</p>
+            </div>
+
+            <button class="mobile-menu-toggle" aria-label="Открыть меню">☰</button>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="MainPage.html#about">О компании</a></li>
+                    <li><a href="MainPage.html#services">Услуги</a></li>
+                    <li><a href="MainPage.html#contacts">Контакты</a></li>
+                    <li><a href="MainPage.html#geography">География</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-contacts">
+                <a href="tel:+375291234567">+375 (29) 123-45-67</a>
+            </div>
+        </div>
+
+        <nav class="sub-nav">
+            <ul>
+                <li><a href="SubmitRequest.html">Подать заявку</a></li>
+                <li><a href="Feedback.html">Обратная связь</a></li>
+                <li><a href="LoginBlockchain.html">Блокчейн</a></li>
+            </ul>
+        </nav>
+
+        <div class="mobile-menu-container">
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="MainPage.html#about">О компании</a></li>
+                    <li><a href="MainPage.html#services">Услуги</a></li>
+                    <li><a href="MainPage.html#contacts">Контакты</a></li>
+                    <li><a href="MainPage.html#geography">География</a></li>
+                </ul>
+            </nav>
+
+            <nav class="sub-nav">
+                <ul>
+                    <li><a href="SubmitRequest.html">Подать заявку</a></li>
+                    <li><a href="Feedback.html">Обратная связь</a></li>
+                    <li><a href="LoginBlockchain.html">Блокчейн</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-contacts">
+                <a href="tel:+375291234567">+375 (29) 123-45-67</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h1>Блокчейн заявок</h1>
+                <div>
+                    <button onclick="loadBlocks()"
+                        style="padding: 8px 16px; background: #2c3e50; color: white; border: none; border-radius: 5px; cursor: pointer;">Обновить</button>
+                    <a href="api/logout.php"
+                        style="padding: 8px 16px; background: #e74c3c; color: white; border: none; border-radius: 5px; text-decoration: none; margin-left: 10px;">Выйти</a>
+                </div>
+            </div>
+
+            <div id="hackedAlert"
+                style="display: none; background: #e74c3c; color: white; padding: 10px; border-radius: 5px; margin-bottom: 20px; text-align: center;">
+                ВНИМАНИЕ: РЕЖИМ ВЗЛОМА АКТИВИРОВАН
+            </div>
+
+            <div id="loading" style="text-align: center; padding: 50px;">Загрузка блоков...</div>
+            <div id="blocks-container"></div>
+
+            <div id="editPanel"
+                style="display: none; background: white; border-radius: 10px; padding: 20px; margin-top: 20px; border: 2px solid #2196f3;">
+                <h3>Редактирование транзакции</h3>
+                <p style="color: #e74c3c; font-size: 14px;">При изменении данных будет создан новый блок с новым хэшем!
+                </p>
+                <div id="editForm"></div>
+                <div style="margin-top: 20px;">
+                    <button onclick="saveTransaction()"
+                        style="padding: 10px 20px; background: #27ae60; color: white; border: none; border-radius: 5px; cursor: pointer;">Сохранить</button>
+                    <button onclick="closeEditPanel()"
+                        style="padding: 10px 20px; background: #95a5a6; color: white; border: none; border-radius: 5px; cursor: pointer; margin-left: 10px;">Отмена</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ООО "Леку-Транс"</h3>
+                <p>Надёжный партнёр в грузоперевозках по Беларуси.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Контакты</h3>
+                <p><a href="tel:+375291234567">+375 (29) 123-45-67</a></p>
+                <p><a href="mailto:info@beltransgroup.by">info@beltransgroup.by</a></p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2010-2025 ООО "Леку-Транс". Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="js/header.js"></script>
+    <script src="js/header.js"></script>
+    <script>
+        let currentTransaction = null;
+
+        async function loadBlocks() {
+            const container = document.getElementById('blocks-container');
+            const loading = document.getElementById('loading');
+
+            loading.style.display = 'block';
+            container.innerHTML = '';
+
+            try {
+                const response = await fetch('/api/blocks_data.php');
+                const data = await response.json();
+
+                loading.style.display = 'none';
+
+                if (data.hacked) {
+                    document.getElementById('hackedAlert').style.display = 'block';
+                }
+
+                if (!data.blocks || data.blocks.length === 0) {
+                    container.innerHTML = '<p style="text-align: center;">Нет блоков в цепочке</p>';
+                    return;
+                }
+
+                container.innerHTML = data.blocks.map(block => `
+                    <div style="background: #f5f5f5; border-radius: 10px; margin-bottom: 30px; padding: 20px; border-left: 5px solid #2c3e50;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid #ddd;">
+                            <div>
+                                <span style="font-size: 1.5em; font-weight: bold; color: #2c3e50;">Блок #${block.block_index}</span>
+                                <span style="margin-left: 10px; color: #666;">${new Date(block.timestamp).toLocaleString('ru-RU')}</span>
+                            </div>
+                            <div style="font-family: monospace; color: #666; font-size: 0.9em;">
+                                Хэш: ${block.block_hash.substring(0, 20)}...
+                            </div>
+                        </div>
+                        <div>
+                            <strong>Транзакции (${block.requests ? block.requests.length : 0}):</strong>
+                            ${(block.requests || []).map(req => `
+                                <div onclick="editTransaction(${req.id})" style="background: white; border-radius: 5px; margin: 10px 0; padding: 15px; border: 1px solid #e0e0e0; cursor: pointer;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        <div style="flex: 1;">
+                                            <div><span style="font-weight: bold; color: #e74c3c;">Заявка: ${escapeHtml(req.request_code)}</span></div>
+                                            <div style="margin-top: 5px; font-size: 14px;">${escapeHtml(req.city_sender)} → ${escapeHtml(req.city_recipient || 'не указан')}</div>
+                                            <div style="margin-top: 3px; font-size: 12px; color: #666;">Вес: ${req.cargo_weight || 0} кг | Стоимость: ${req.cargo_cost || 0} руб.</div>
+                                            <div style="margin-top: 5px; font-family: monospace; font-size: 0.85em; color: #888;">Хэш: ${req.transaction_hash.substring(0, 24)}...</div>
+                                        </div>
+                                        <div><span style="background: #27ae60; color: white; padding: 3px 8px; border-radius: 3px; font-size: 11px;">Подтверждено</span></div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `).join('');
+
+            } catch (error) {
+                loading.style.display = 'none';
+                container.innerHTML = `<p style="text-align: center; color: red;">Ошибка загрузки: ${error.message}</p>`;
+                console.error('Error:', error);
+            }
+        }
+
+        async function editTransaction(transactionId) {
+            console.log('ID транзакции:', transactionId);
+            try {
+                const response = await fetch(`/api/get_transaction.php?id=${transactionId}`);
+                const data = await response.json();
+
+                if (!data.success) {
+                    alert('Ошибка: ' + (data.error || 'Не удалось загрузить данные'));
+                    return;
+                }
+
+                const tx = data.transaction;
+
+                currentTransaction = {
+                    id: transactionId,
+                    request_id: tx.request_id
+                };
+
+                document.getElementById('editForm').innerHTML = `
+                    <div style="margin-bottom: 15px;">
+                        <label>Город отправителя</label>
+                        <input type="text" id="edit_city_sender" value="${escapeHtml(tx.city_sender || '')}" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label>Компания отправитель</label>
+                        <input type="text" id="edit_name_sender" value="${escapeHtml(tx.name_sender || '')}" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label>Адрес отправителя</label>
+                        <input type="text" id="edit_address_sender" value="${escapeHtml(tx.address_sender || '')}" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label>Телефон отправителя</label>
+                        <input type="text" id="edit_phone_sender" value="${escapeHtml(tx.phone_sender || '')}" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label>Город получателя</label>
+                        <input type="text" id="edit_city_recipient" value="${escapeHtml(tx.city_recipient || '')}" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label>Компания получатель</label>
+                        <input type="text" id="edit_name_recipient" value="${escapeHtml(tx.name_recipient || '')}" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label>Наименование груза</label>
+                        <input type="text" id="edit_cargo_name" value="${escapeHtml(tx.cargo_name || '')}" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label>Количество мест</label>
+                        <input type="number" id="edit_cargo_quantity" value="${tx.cargo_quantity || 0}" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label>Вес (кг)</label>
+                        <input type="number" id="edit_cargo_weight" value="${tx.cargo_weight || 0}" step="0.1" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label>Объём (м³)</label>
+                        <input type="number" id="edit_cargo_volume" value="${tx.cargo_volume || 0}" step="0.01" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label>Стоимость (руб.)</label>
+                        <input type="number" id="edit_cargo_cost" value="${tx.cargo_cost || 0}" step="0.01" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label>Комментарий</label>
+                        <textarea id="edit_comment" rows="3" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">${escapeHtml(tx.comment || '')}</textarea>
+                    </div>
+                `;
+
+                document.getElementById('editPanel').style.display = 'block';
+                document.getElementById('editPanel').scrollIntoView({ behavior: 'smooth' });
+
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Ошибка загрузки данных транзакции');
+            }
+        }
+
+        async function saveTransaction() {
+            console.log('currentTransaction:', currentTransaction);
+            const newData = {
+                city_sender: document.getElementById('edit_city_sender').value,
+                name_sender: document.getElementById('edit_name_sender').value,
+                address_sender: document.getElementById('edit_address_sender').value,
+                phone_sender: document.getElementById('edit_phone_sender').value,
+                city_recipient: document.getElementById('edit_city_recipient').value,
+                name_recipient: document.getElementById('edit_name_recipient').value,
+                cargo_name: document.getElementById('edit_cargo_name').value,
+                cargo_quantity: document.getElementById('edit_cargo_quantity').value,
+                cargo_weight: document.getElementById('edit_cargo_weight').value,
+                cargo_volume: document.getElementById('edit_cargo_volume').value,
+                cargo_cost: document.getElementById('edit_cargo_cost').value,
+                comment: document.getElementById('edit_comment').value
+            };
+
+            try {
+                const response = await fetch('/api/update_transaction.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        id: currentTransaction.id,
+                        data: newData
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    alert('Данные успешно изменены!');
+
+                    if (result.old_block_hash !== result.new_block_hash) {
+                        alert(`ВНИМАНИЕ: ХЭШИ ОТЛИЧАЮТСЯ!\n\nСтарый хэш блока: ${result.old_block_hash.substring(0, 32)}...\nНовый хэш блока: ${result.new_block_hash.substring(0, 32)}...\n\nДанные были изменены, целостность блокчейна нарушена!`);
+                    }
+
+                    closeEditPanel();
+                    loadBlocks();
+                } else {
+                    alert('Ошибка: ' + (result.error || 'Не удалось сохранить'));
+                }
+
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Ошибка при сохранении');
+            }
+        }
+
+        function closeEditPanel() {
+            document.getElementById('editPanel').style.display = 'none';
+            currentTransaction = null;
+        }
+
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadBlocks();
+        });
+    </script>
+</body>
+
+</html>

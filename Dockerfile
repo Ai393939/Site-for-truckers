@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     mariadb-client \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install pdo pdo_mysql mysqli gd zip \
+    && docker-php-ext-install gd zip pdo_mysql mysqli \
     && a2enmod rewrite
 
 COPY . /var/www/html/

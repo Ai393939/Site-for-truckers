@@ -8,6 +8,11 @@ $request_uri = $_SERVER['REQUEST_URI'];
 $path = parse_url($request_uri, PHP_URL_PATH);
 $path = trim($path, '/');
 
+if (file_exists(__DIR__ . '/' . $path) && pathinfo($path, PATHINFO_EXTENSION) === 'php') {
+    include __DIR__ . '/' . $path;
+    exit;
+}
+
 if (strpos($path, 'api/') === 0) {
     $api_file = substr($path, 4);
     $api_path = __DIR__ . '/api/' . $api_file;
@@ -32,7 +37,10 @@ $routes = [
     'index' => 'MainPage.html',
     'main' => 'MainPage.html',
     'submit-request' => 'SubmitRequest.html',
-    'feedback' => 'Feedback.html'
+    'feedback' => 'Feedback.html',
+    'LoginBlockchain' => 'LoginBlockchain.html',
+    'loginblockchain' => 'LoginBlockchain.html',
+    'blocks' => 'Blocks.html',
 ];
 
 if (isset($routes[$path])) {
